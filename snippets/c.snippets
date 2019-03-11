@@ -282,6 +282,8 @@ snippet getopt
 	int choice;
 	while (1)
 	{
+		int option_index = 0;
+
 		static struct option long_options[] =
 		{
 			/* Use flags like so:
@@ -292,8 +294,6 @@ snippet getopt
 			${1}
 			{0,0,0,0}
 		};
-
-		int option_index = 0;
 
 		/* Argument parameters:
 			no_argument: " "
@@ -306,8 +306,7 @@ snippet getopt
 		if (choice == -1)
 			break;
 
-		switch( choice )
-		{
+		switch( choice ) {
 			case 'v':
 				${2}
 				break;
@@ -327,10 +326,8 @@ snippet getopt
 	}
 
 	/* Deal with non-option arguments here */
-	if ( optind < argc )
-	{
-		while ( optind < argc )
-		{
+	if ( optind < argc ) {
+		while ( optind < argc ) {
 			${0}
 		}
 	}
@@ -344,3 +341,7 @@ snippet todo
 # This is kind of convenient
 snippet .
 	[${1}]
+snippet //
+	/* 
+	 *  ${0}
+	 */
